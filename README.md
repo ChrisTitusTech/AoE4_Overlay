@@ -1,6 +1,6 @@
 # AoE4 Overlay
  
-* **[DOWNLOAD HERE](https://github.com/FluffyMaguro/AoE4_Overlay/releases/download/1.4.8/AoE4_Overlay.zip)** (Windows)
+* **[DOWNLOAD HERE](https://github.com/ChrisTitusTech/AoE4_Overlay/releases/download/2.0/AoE4_Overlay.zip)** (Windows)
 * Or run the script with Python 3.6+ (Windows/Mac/Linux)
 
 ![Screenshot](https://i.imgur.com/eN2zJ3c.jpg)
@@ -28,7 +28,7 @@ API calls are done through [AoE4World.com](https://aoe4world.com/). For build or
 
 **Linux** 
 * ```cd ~/Documents```
-* ```git clone https://github.com/FluffyMaguro/AoE4_Overlay.git```
+* ```git clone https://github.com/ChrisTitusTech/AoE4_Overlay.git```
 * ```cd ~/Documents/AoE4_Overlay```
 * ```pip install -r requirements.txt```
 * ```python3 src/AoE4_Overlay.py```
@@ -194,4 +194,13 @@ Or change values to something completely different
 
 # Releases & Changelog
 
-[All here](https://github.com/FluffyMaguro/AoE4_Overlay/releases)
+[All here](https://github.com/ChrisTitusTech/AoE4_Overlay/releases)
+
+# Creating New Releases
+
+**Automation is done with GitHub Actions. To create a new release, simply run:**
+
+```
+git tag v2.0
+git push origin v2.0
+```

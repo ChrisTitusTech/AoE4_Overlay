@@ -16,7 +16,7 @@ from overlay.tab_main import TabWidget
 
 logger = get_logger(__name__)
 
-VERSION = "1.4.8"
+VERSION = "2.0"
 
 # Might or might not help
 os.environ["PYTHONIOENCODING"] = "utf-8"
@@ -128,7 +128,7 @@ class MainApp(QtWidgets.QMainWindow):
         githubAction = QtGui.QAction(icon, 'App on Github', self)
         githubAction.triggered.connect(
             partial(webbrowser.open,
-                    "https://github.com/FluffyMaguro/AoE4_Overlay"))
+                    "https://github.com/ChrisTitusTech/AoE4_Overlay"))
         link_menu.addAction(githubAction)
 
         # Discord

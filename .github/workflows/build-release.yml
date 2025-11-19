@@ -1,0 +1,70 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install nuitka ordered-set zstandard
+      
+      - name: Build with Nuitka
+        run: |
+          python -m nuitka --plugin-enable=pyqt6 --standalone --windows-disable-console --windows-icon-from-ico=src/img/aoe4_sword_shield.ico --include-data-dir=src/img=img --include-data-dir=src/html=html src/AoE4_Overlay.py
+      
+      - name: Create ZIP archive
+        run: |
+          $version = python -c "import sys; sys.path.insert(0, 'src'); from AoE4_Overlay import VERSION; print(VERSION)"
+          Compress-Archive -Path AoE4_Overlay.dist/* -DestinationPath AoE4_Overlay.zip
+        shell: pwsh
+      
+      - name: Get version
+        id: get_version
+        run: |
+          $version = python -c "import sys; sys.path.insert(0, 'src'); from AoE4_Overlay import VERSION; print(VERSION)"
+          echo "version=$version" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+      
+      - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: AoE4_Overlay.zip
+          draft: false
+          prerelease: false
+          body: |
+            # AoE4 Overlay v${{ steps.get_version.outputs.version }}
+            
+            ## Installation
+            1. Download AoE4_Overlay.zip
+            2. Extract the archive
+            3. Run AoE4_Overlay.exe
+            
+            See the [README](https://github.com/ChrisTitusTech/AoE4_Overlay/blob/main/README.md) for full documentation.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload artifact
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: AoE4_Overlay-Windows
+          path: AoE4_Overlay.zip
+          retention-days: 30
