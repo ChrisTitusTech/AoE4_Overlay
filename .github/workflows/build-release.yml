@@ -53,12 +53,9 @@ jobs:
           draft: false
           prerelease: false
           make_latest: true
+          generate_release_notes: true
           body: |
             # AoE4 Overlay v${{ steps.get_version.outputs.version }}
-            
-            ## Changes
-            - Migrated from PyQt6 to PySide6 for better stability and threading support
-            - Updated Nuitka compilation options to modern syntax
             
             ## Installation
             1. Download AoE4_Overlay.zip
@@ -66,6 +63,8 @@ jobs:
             3. Run AoE4_Overlay.exe
             
             See the [README](https://github.com/ChrisTitusTech/AoE4_Overlay/blob/main/README.md) for full documentation.
+            
+            ## Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
