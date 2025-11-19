@@ -3,7 +3,7 @@ from PySide6.QtCore import Qt
 
 
 class CustomKeySequenceEdit(QtWidgets.QKeySequenceEdit):
-    key_changed = QtCore.pyqtSignal(str)
+    key_changed = QtCore.Signal(str)
 
     def __init__(self, parent=None):
         super(CustomKeySequenceEdit, self).__init__(parent)

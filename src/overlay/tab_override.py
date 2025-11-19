@@ -166,8 +166,8 @@ class InnerOverlay(AoEOverlay):
 
 
 class OverrideTab(QtWidgets.QWidget):
-    data_override = QtCore.pyqtSignal(object)
-    update_override = QtCore.pyqtSignal(bool)
+    data_override = QtCore.Signal(object)
+    update_override = QtCore.Signal(bool)
 
     def __init__(self, parent):
         super().__init__(parent)

@@ -17,8 +17,8 @@ logger = get_logger(__name__)
 
 
 class SettingsTab(QtWidgets.QWidget):
-    new_profile = QtCore.pyqtSignal()
-    show_hide_overlay = QtCore.pyqtSignal()
+    new_profile = QtCore.Signal()
+    show_hide_overlay = QtCore.Signal()
 
     def __init__(self, parent):
         super().__init__(parent)
