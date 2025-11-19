@@ -6,6 +6,9 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -42,15 +45,20 @@ jobs:
           echo "version=$version" >> $env:GITHUB_OUTPUT
         shell: pwsh
       
-      - name: Create Release
+      - name: Create or Update Release
         if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: AoE4_Overlay.zip
           draft: false
           prerelease: false
+          make_latest: true
           body: |
             # AoE4 Overlay v${{ steps.get_version.outputs.version }}
+            
+            ## Changes
+            - Migrated from PyQt6 to PySide6 for better stability and threading support
+            - Updated Nuitka compilation options to modern syntax
             
             ## Installation
             1. Download AoE4_Overlay.zip
