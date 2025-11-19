@@ -1,5 +1,5 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
 
 
 class CustomKeySequenceEdit(QtWidgets.QKeySequenceEdit):

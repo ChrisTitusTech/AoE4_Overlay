@@ -3,8 +3,8 @@ import os
 import pathlib
 
 import keyboard
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
 
 from overlay.build_order_tools import (
     MultiQLabelDisplay, QLabelSettings,

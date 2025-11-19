@@ -3,8 +3,8 @@ import math
 import time
 from typing import Iterable, List, Optional, Tuple, Union
 
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
 
 from overlay.logging_func import get_logger
 

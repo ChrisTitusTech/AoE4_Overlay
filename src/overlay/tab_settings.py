@@ -3,8 +3,8 @@ from types import TracebackType
 from typing import Tuple, Type
 
 import keyboard
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
 
 from overlay.api_checking import find_player
 from overlay.custom_widgets import CustomKeySequenceEdit

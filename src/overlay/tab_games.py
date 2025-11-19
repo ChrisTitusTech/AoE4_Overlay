@@ -2,8 +2,8 @@ from collections import defaultdict
 from datetime import datetime
 from typing import Any, Dict, List
 
-from PyQt6 import QtCore, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtWidgets
+from PySide6.QtCore import Qt
 
 from overlay.logging_func import catch_exceptions, get_logger
 from overlay.settings import settings

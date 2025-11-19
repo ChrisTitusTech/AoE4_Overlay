@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict
 
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import Qt
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import Qt
 
 from overlay.aoe4_data import civ_data
 from overlay.helper_func import file_path, zeroed

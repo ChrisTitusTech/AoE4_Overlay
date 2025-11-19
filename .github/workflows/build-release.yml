@@ -27,7 +27,7 @@ jobs:
       
       - name: Build with Nuitka
         run: |
-          python -m nuitka --plugin-enable=pyqt6 --standalone --windows-disable-console --windows-icon-from-ico=src/img/aoe4_sword_shield.ico --include-data-dir=src/img=img --include-data-dir=src/html=html src/AoE4_Overlay.py
+          python -m nuitka --plugin-enable=pyside6 --standalone --assume-yes-for-downloads --windows-console-mode=disable --windows-icon-from-ico=src/img/aoe4_sword_shield.ico --include-data-dir=src/img=img --include-data-dir=src/html=html src/AoE4_Overlay.py
       
       - name: Create ZIP archive
         run: |
